@@ -1,0 +1,178 @@
+/*
+|   =========================================================
+|   InvoicePlane
+|   Templates Sass Stylesheet
+|   =========================================================
+*/
+/*=========================================================*/
+@font-face {
+  font-family: 'Inter';
+  src: url("../fonts/Inter-Regular.ttf") format("ttf");
+  src: url("../fonts/Inter-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff"), url("../fonts/Inter-Regular.svg#Inter-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("Inter-Black.ttf") format("ttf");
+  src: url("Inter-Black.eot?#iefix") format("embedded-opentype"), url("Inter-Black.woff2") format("woff2"), url("Inter-Black.woff") format("woff"), url("Inter-Black.svg#Inter-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("../fonts/Inter-Thin.ttf") format("ttf");
+  src: url("../fonts/Inter-Thin.svg#Inter-Thin") format("svg");
+  src: url("../fonts/Inter-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff"), url("../fonts/Inter-Thin.eot");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Inter' !important;
+}
+
+/*=========================================================*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  color: #3A3A3A;
+}
+
+body {
+  position: relative;
+  width: 21cm;
+  height: 29.7cm;
+  margin: 0 auto;
+  color: #3A3A3A;
+  background: #FFFFFF;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+#logo {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+#invoice-logo {
+  margin-top: -1.9cm;
+  max-height: 125px;
+  text-align: right;
+}
+
+.invoice-title {
+  font-size: 1.3em;
+  line-height: 1.4em;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+}
+
+.invoice-subject {
+  width: 90%;
+  font-size: 12px;
+  margin: 0 0 25px 0;
+}
+
+#company {
+  width: 55%;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+#client {
+  float: left;
+  width: 55%;
+  margin-right: 5%;
+}
+
+.invoice-details {
+  text-align: right;
+}
+
+.invoice-details table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: right;
+  width: 40%;
+  margin: 0 0 0 auto;
+  font-size: 12px;
+}
+
+.invoice-details table td {
+  width: auto;
+  margin: 0;
+  padding: 0 0 0.5em 0;
+}
+
+table.item-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+table.item-table tr:nth-child(2n-1) td {
+  background: #fbfbfb;
+}
+
+table.item-table th {
+  padding: 10px 15px;
+  border-bottom: 1px solid #606060;
+  white-space: nowrap;
+  text-align: left;
+}
+
+table.item-table th.text-right {
+  text-align: right;
+}
+
+table.item-table td {
+  padding: 10px 15px;
+}
+
+table.item-table .invoice-sums {
+  width: 40%;
+  text-align: right;
+  background: #fff;
+}
+
+.notes {
+  font-size: 12px;
+}
+
+footer {
+  font-size: 12px;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-red {
+  color: #ea5340;
+}
+
+.text-green {
+  color: #77b632;
+}
+/*# sourceMappingURL=templates.css.map */
