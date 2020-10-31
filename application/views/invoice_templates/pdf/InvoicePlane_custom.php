@@ -1,10 +1,11 @@
-<?php  $separator = ' | ' ?>
-
 <!DOCTYPE html>
 <html lang="<?php _trans('cldr'); ?>">
 
+
+<?php  $separator = ' | ' ?>
+
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php _trans('invoice'); ?></title>
     <link rel="stylesheet"
         href="<?php echo base_url(); ?>assets/<?php echo get_setting('system_theme', 'invoiceplane'); ?>/css/templates.css">
@@ -110,7 +111,10 @@
         <h1 class="invoice-title"><?php echo trans('invoice') . ' ' . $invoice->invoice_number; ?></h1>
         <div class="invoice-subject">
             <?php 
-            if($custom_fields['invoice']['Invoice Subject']) { echo  $custom_fields['invoice']['Invoice Subject']; }?></div>
+            if($custom_fields['invoice']['Invoice Subject']) { 
+                echo  $custom_fields['invoice']['Invoice Subject'];
+            }?>
+        </div>
         <table class="item-table">
             <thead>
                 <tr>
@@ -226,7 +230,7 @@
                         <b><?php _trans('balance'); ?></b>
                     </td>
                     <td class="text-right">
-                        <b><?php echo format_currency($invoice->invoice_balance); ?></b>
+                        <b><?php echo (format_currency($invoice->invoice_balance)); ?></b>
                     </td>
                 </tr>
             </tbody>

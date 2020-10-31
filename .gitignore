@@ -28,7 +28,7 @@
 /vendor/mpdf/mpdf/*
 !vendor/mpdf/mpdf/ttfonts
 /vendor/mpdf/mpdf/ttfonts/*
-!vendor/mpdf/mpdf/ttfonts/inter*
+!vendor/mpdf/mpdf/ttfonts/DejaVuSans-ExtraLight.ttf
 
 !vendor/mpdf/mpdf/src
 /vendor/mpdf/mpdf/src/*

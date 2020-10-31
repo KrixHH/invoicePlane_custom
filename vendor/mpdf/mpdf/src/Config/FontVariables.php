@@ -95,7 +95,9 @@ class FontVariables
 			'fontdata' => [
 				"inter" => [
 					'R' => 'Inter-Light.ttf',
-					'B' => 'Inter-Bold.ttf'
+					'B' => 'Inter-Bold.ttf',
+					'useOTL' => 0xFF,
+					'useKashida' => 75,
 				],
 				"dejavusanscondensed" => [
 					'R' => "DejaVuSansCondensed.ttf",
@@ -106,7 +108,7 @@ class FontVariables
 					'useKashida' => 75,
 				],
 				"dejavusans" => [
-					'R' => "DejaVuSans.ttf",
+					'R' => "DejaVuSans-ExtraLight.ttf",
 					'B' => "DejaVuSans-Bold.ttf",
 					'I' => "DejaVuSans-Oblique.ttf",
 					'BI' => "DejaVuSans-BoldOblique.ttf",

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACN,WAAW,EAAE,oEAAoE;EACjF,SAAS,EAAE,GAAG;CACf",
-    "sources": [
-        "monospace.scss"
-    ],
-    "names": [],
-    "file": "monospace.css"
-}
