@@ -14,77 +14,72 @@
 
 <body>
     <header class="clearfix">
-
         <div id="logo">
             <?php echo invoice_logo_pdf(); ?>
         </div>
 
         <div id="company">
             <div><b><?php _htmlsc($invoice->user_name); ?></b>
-                <?php 
-        if ($invoice->user_address_1) {
-            echo $separator . htmlsc($invoice->user_address_1);
-        }
-        if ($invoice->user_address_2) {
-            echo  $separator .  htmlsc($invoice->user_address_2);
-        }
-        if ($invoice->user_city || $invoice->user_state || $invoice->user_zip) {
-            echo $separator;
-            if ($invoice->user_city) {
-                echo htmlsc($invoice->user_city) . ' ';
+            <?php 
+            if ($invoice->user_address_1) {
+                echo $separator . htmlsc($invoice->user_address_1);
+            }
+            if ($invoice->user_address_2) {
+                echo  $separator .  htmlsc($invoice->user_address_2);
+            }
+            if ($invoice->user_city || $invoice->user_state || $invoice->user_zip) {
+                echo $separator;
+                if ($invoice->user_city) {
+                    echo htmlsc($invoice->user_city) . ' ';
+                }
+
+                if ($invoice->user_zip) {
+                    echo htmlsc($invoice->user_zip);
+                }
             }
 
-            if ($invoice->user_zip) {
-                echo htmlsc($invoice->user_zip);
-            }
-        }
 
-
-        echo '</div>';
-        ?>
-            </div>
-
-            <div id="client">
-                <div>
-                    <b><?php _htmlsc(format_client($invoice)); ?></b>
-                </div>
-                <?php
-        if ($invoice->client_address_1) {
-            echo '<div>' . htmlsc($invoice->client_address_1) . '</div>';
-        }
-        if ($invoice->client_address_2) {
-            echo '<div>' . htmlsc($invoice->client_address_2) . '</div>';
-        }
-        if ($invoice->client_city || $invoice->client_state || $invoice->client_zip) {
-            echo '<div>';
-            if ($invoice->client_city) {
-                echo htmlsc($invoice->client_city) . ' ';
-            }
-            if ($invoice->client_state) {
-                echo htmlsc($invoice->client_state) . ' ';
-            }
-            if ($invoice->client_zip) {
-                echo htmlsc($invoice->client_zip);
-            }
             echo '</div>';
-        }
-        if ($invoice->client_country) {
-            echo '<div>' . get_country_name(trans('cldr'), $invoice->client_country) . '</div>';
-        }
+        ?>
+        </div>
 
-
-
-        if ($invoice->client_phone) {
-            echo '<div>' . trans('phone_abbr') . ': ' . htmlsc($invoice->client_phone) . '</div>';
-        } ?>
-
+        <div id="client">
+            <div>
+                <b><?php _htmlsc(format_client($invoice)); ?></b>
             </div>
+            <?php
+            if ($invoice->client_address_1) {
+                echo '<div>' . htmlsc($invoice->client_address_1) . '</div>';
+            }
+            if ($invoice->client_address_2) {
+                echo '<div>' . htmlsc($invoice->client_address_2) . '</div>';
+            }
+            if ($invoice->client_city || $invoice->client_state || $invoice->client_zip) {
+                echo '<div>';
+                if ($invoice->client_city) {
+                    echo htmlsc($invoice->client_city) . ' ';
+                }
+                if ($invoice->client_state) {
+                    echo htmlsc($invoice->client_state) . ' ';
+                }
+                if ($invoice->client_zip) {
+                    echo htmlsc($invoice->client_zip);
+                }
+                echo '</div>';
+            }
+            if ($invoice->client_country) {
+                echo '<div>' . get_country_name(trans('cldr'), $invoice->client_country) . '</div>';
+            }
 
 
+
+            if ($invoice->client_phone) {
+                echo '<div>' . trans('phone_abbr') . ': ' . htmlsc($invoice->client_phone) . '</div>';
+            } ?>
+        </div>
     </header>
 
     <main>
-
         <div class="invoice-details clearfix">
             <table>
                 <tr>
@@ -107,12 +102,13 @@
                 <?php endif; ?>
             </table>
         </div>
-
         <h1 class="invoice-title"><?php echo trans('invoice') . ' ' . $invoice->invoice_number; ?></h1>
         <div class="invoice-subject">
             <?php 
             if($custom_fields['invoice']['Invoice Subject']) { 
                 echo  $custom_fields['invoice']['Invoice Subject'];
+            } else if ($custom_fields['quote']['Quote Subject']) {
+                echo  $custom_fields['quote']['	Quote Subject'];
             }?>
         </div>
         <table class="item-table">
@@ -122,39 +118,39 @@
                     <th class="item-desc"><?php _trans('description'); ?></th>
                     <th class="item-amount text-right"><?php _trans('qty'); ?></th>
                     <th class="item-price text-right"><?php _trans('price'); ?></th>
-                    <?php if ($show_item_discounts  ) : ?>
-                    <th class="item-discount text-right"><?php _trans('discount'); ?></th>
+                    <?php if ($show_item_discounts ) : ?>
+                        <th class="item-discount text-right"><?php _trans('discount'); ?></th>
                     <?php endif; ?>
                     <th class="item-total text-right"><?php _trans('total'); ?></th>
                 </tr>
             </thead>
             <tbody>
 
-                <?php
-        foreach ($items as $item) { ?>
-                <tr>
-                    <td><?php _htmlsc($item->item_name); ?></td>
-                    <td><?php echo nl2br(($item->item_description)); ?></td>
-                    <td class="text-right">
-                        <?php echo format_amount($item->item_quantity); ?>
-                        <?php if ($item->item_product_unit) : ?>
-                        <br>
-                        <small><?php _htmlsc($item->item_product_unit); ?></small>
-                        <?php endif; ?>
-                    </td>
-                    <td class="text-right">
-                        <?php echo format_currency($item->item_price); ?>
-                    </td>
-                    <?php if ($show_item_discounts) : ?>
-                    <td class="text-right">
-                        <?php echo format_currency($item->item_discount); ?>
-                    </td>
+            <?php
+            foreach ($items as $item) { ?>
+            <tr>
+                <td><?php _htmlsc($item->item_name); ?></td>
+                <td><?php echo nl2br(($item->item_description)); ?></td>
+                <td class="text-right">
+                    <?php echo format_amount($item->item_quantity); ?>
+                    <?php if ($item->item_product_unit) : ?>
+                    <br>
+                    <small><?php _htmlsc($item->item_product_unit); ?></small>
                     <?php endif; ?>
-                    <td class="text-right">
-                        <?php echo format_currency($item->item_total); ?>
-                    </td>
-                </tr>
-                <?php } ?>
+                </td>
+                <td class="text-right">
+                    <?php echo format_currency($item->item_price); ?>
+                </td>
+                <?php if ($show_item_discounts) : ?>
+                <td class="text-right">
+                    <?php echo format_currency($item->item_discount); ?>
+                </td>
+                <?php endif; ?>
+                <td class="text-right">
+                    <?php echo format_currency($item->item_total); ?>
+                </td>
+            </tr>
+            <?php } ?>
 
             </tbody>
             <tbody class="invoice-sums">
@@ -244,88 +240,6 @@
         </div>
         <?php endif; ?>
     </main>
-
-    <footer>
-
-
-        <div>
-            <hr>
-            <b><?php _htmlsc($invoice->user_name); ?></b>
-            <?php 
-        if ($invoice->user_address_1) {
-            echo $separator . htmlsc($invoice->user_address_1);
-        }
-        if ($invoice->user_address_2) {
-            echo  $separator .  htmlsc($invoice->user_address_2);
-        }
-        if ($invoice->user_city || $invoice->user_state || $invoice->user_zip || $invoice->user_counry) {
-            echo $separator;
-            
-            if ($invoice->user_zip) {
-                echo htmlsc($invoice->user_zip) . ' ';
-            }
-
-            if ($invoice->user_city) {
-                echo htmlsc($invoice->user_city) . $separator;
-            }
-
-            if ($invoice->user_state) {
-                echo htmlsc($invoice->user_state) . $separator;
-            }
-
-            if ($invoice->user_country) {
-                echo get_country_name(trans('cldr'), $invoice->user_country);
-            }
-        }
-    ?>
-        </div>
-
-        <div>
-            <?php
-
-            if ($invoice->user_email) {
-                echo '<a href="mailto:'.$invoice->user_email.'">' .htmlsc($invoice->user_email). '</a>';
-            }
-            if ($invoice->user_mobile) {
-                echo $separator.htmlsc($invoice->user_mobile). ' ';
-            }
-            if ($invoice->user_phone) {
-                echo $separator.htmlsc($invoice->user_phone). ' ';
-            }
-            if ($invoice->user_fax) {
-                echo $separator.htmlsc($invoice->user_fax) . ' ';
-            }
-            if ($invoice->user_web) {
-                echo $separator.htmlsc($invoice->user_web) . ' ';
-            }
-        ?>
-        </div>
-
-        <div>
-            <?php
-            if ($invoice->user_vat_id) {
-                echo trans('vat_id_short') . ': ' . $invoice->user_vat_id . ' ';
-            }
-
-            if ($invoice->user_tax_code) {
-                echo trans('tax_code_short') . ': ' . $invoice->user_tax_code . ' ';
-            }
-        ?>
-        <?php
-            if($invoice->user_iban) {
-                echo $separator .trans('user_iban').': '. $invoice->user_iban . '';
-            }
-            if($custom_fields['user']['bic']) {
-                echo $separator . $custom_fields['user']['bic'] . '';
-            }
-        ?>
-        </div>
-
-        <div>
-
-        </div>
-
-    </footer>
 
 </body>
 

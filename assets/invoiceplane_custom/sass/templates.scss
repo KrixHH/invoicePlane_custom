@@ -152,8 +152,15 @@ footer {
   font-size: 12px;
   width: 100%;
   padding: 8px 0;
-  text-align: center;
+  text-align: left;
+
+  .pagination {
+    text-align: right;
+    margin-top: -16px;
+  }
 }
+
+
 
 .text-right {
   text-align: right;
