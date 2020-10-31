@@ -108,7 +108,9 @@
         </div>
 
         <h1 class="invoice-title"><?php echo trans('invoice') . ' ' . $invoice->invoice_number; ?></h1>
-        <div class="invoice-subject"><?php echo  $custom_fields['invoice']['Invoice Subject'] ?></div>
+        <div class="invoice-subject">
+            <?php 
+            if($custom_fields['invoice']['Invoice Subject']) { echo  $custom_fields['invoice']['Invoice Subject']; }?></div>
         <table class="item-table">
             <thead>
                 <tr>
