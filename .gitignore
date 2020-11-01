@@ -15,9 +15,22 @@
 !/application/views/invoice_templates/pdf
 
 
+!/application/helpers
+application/helpers/*
+!/application/helpers/mpdf_helper.php
+
+
 /application/views/invoice_templates/pdf/*
 !/application/views/invoice_templates/pdf/invoicePlane_custom.php
+!/application/views/invoice_templates/pdf/footer_invoice.php
 
+!/application/views/quote_templates
+/application/views/quote_templates/*
+!/application/views/quote_templates/pdf
+
+/application/views/quote_templates/pdf/*
+!/application/views/quote_templates/pdf/Quote_custom.php
+!/application/views/quote_templates/pdf/footer_quote.php
 
 #fonts for pdf
 !vendor/
