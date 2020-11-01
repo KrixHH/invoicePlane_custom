@@ -106,7 +106,7 @@
         <h1 class="invoice-title"><?php echo trans('quote') . ' ' . $quote->quote_number; ?></h1>
         <div class="invoice-subject">
             <?php 
-            if($custom_fields['quote']['Quote Subject']) { 
+            if(!!empty($custom_fields['quote']['Quote Subject'])) { 
                 echo  $custom_fields['quote']['Quote Subject'];
             } ?>
         </div>
