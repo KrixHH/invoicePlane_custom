@@ -45,7 +45,7 @@
         <div id="client">
             <div>
 
-                <b><?php _htmlsc(format_client($invoice)); ?>
+                <b><?php _htmlsc(format_client($invoice)); ?></br>
                 <?php 
                 if (isset($custom_fields['client']['Ansprechpartner']) ) {
                     echo '<div>' . htmlsc($custom_fields['client']['Ansprechpartner']) . '</div>';
