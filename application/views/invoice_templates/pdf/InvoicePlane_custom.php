@@ -30,7 +30,7 @@
             if ($invoice->user_city || $invoice->user_state || $invoice->user_zip) {
                 echo $separator;
                 if ($invoice->user_zip) {
-                    echo htmlsc($invoice->user_zip) . ' ';
+                    echo htmlsc($invoice->user_zip) . ' 'gi;
                 }
                 if ($invoice->user_city) {
                     echo htmlsc($invoice->user_city) . ' ';
@@ -44,11 +44,12 @@
 
         <div id="client">
             <div>
-                <b><?php 
+
+                <b><?php _htmlsc(format_client($invoice)); ?>
+                <?php 
                 if (isset($custom_fields['client']['Ansprechpartner']) ) {
                     echo '<div>' . htmlsc($custom_fields['client']['Ansprechpartner']) . '</div>';
                 } ?>
-                <b><?php _htmlsc(format_client($invoice)); ?></b>
             </div>
             <?php
             if ($invoice->client_address_1) {

@@ -47,6 +47,10 @@
             <div id="client">
                 <div>
                     <b><?php _htmlsc(format_client($quote)); ?></b>
+                    <?php 
+                    if (isset($custom_fields['client']['Ansprechpartner']) ) {
+                        echo '<div>' . htmlsc($custom_fields['client']['Ansprechpartner']) . '</div>';
+                    } ?>
                 </div>
                 <?php
         if ($quote->client_address_1) {
