@@ -70,7 +70,7 @@
             if($quote->user_iban) {
                 echo $separator .trans('user_iban').': '. $quote->user_iban . '';
             }
-            if(!empty($custom_fields['user']['bic'])) {
+            if(isset($custom_fields['user']['bic'])) {
                 echo $separator . $custom_fields['user']['bic'] . '';
             } 
         ?>

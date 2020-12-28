@@ -29,12 +29,11 @@
             }
             if ($invoice->user_city || $invoice->user_state || $invoice->user_zip) {
                 echo $separator;
-                if ($invoice->user_city) {
-                    echo htmlsc($invoice->user_city) . ' ';
-                }
-
                 if ($invoice->user_zip) {
                     echo htmlsc($invoice->user_zip);
+                }
+                if ($invoice->user_city) {
+                    echo htmlsc($invoice->user_city) . ' ';
                 }
             }
 
@@ -45,6 +44,10 @@
 
         <div id="client">
             <div>
+                <b><?php 
+                if (isset($custom_fields['client']['Ansprechpartner']) ) {
+                    echo '<div>' . htmlsc($custom_fields['client']['Ansprechpartner']) . '</div>';
+                } ?>
                 <b><?php _htmlsc(format_client($invoice)); ?></b>
             </div>
             <?php
@@ -56,15 +59,15 @@
             }
             if ($invoice->client_city || $invoice->client_state || $invoice->client_zip) {
                 echo '<div>';
-                if ($invoice->client_city) {
-                    echo htmlsc($invoice->client_city) . ' ';
-                }
-                if ($invoice->client_state) {
-                    echo htmlsc($invoice->client_state) . ' ';
-                }
                 if ($invoice->client_zip) {
                     echo htmlsc($invoice->client_zip);
                 }
+                if ($invoice->client_city) {
+                    echo htmlsc($invoice->client_city) . ' ';
+                }
+                /*if ($invoice->client_state) {
+                    echo htmlsc($invoice->client_state) . ' ';
+                }*/
                 echo '</div>';
             }
             if ($invoice->client_country) {
@@ -105,8 +108,8 @@
         <h1 class="invoice-title"><?php echo trans('invoice') . ' ' . $invoice->invoice_number; ?></h1>
         <div class="invoice-subject">
             <?php 
-            if (!empty($custom_fields['invoice']['Invoice Subject']) ) {
-                echo $custom_fields['invoice']['Invoice Subject'];
+            if (isset($custom_fields['invoice']['Invoice Subject']) ) {
+                print_r( $custom_fields['invoice']['Invoice Subject']);
             }?>
         </div>
         <table class="item-table">

@@ -57,15 +57,15 @@
         }
         if ($quote->client_city || $quote->client_state || $quote->client_zip) {
             echo '<div>';
-            if ($quote->client_city) {
-                echo htmlsc($quote->client_city) . ' ';
-            }
-            if ($quote->client_state) {
-                echo htmlsc($quote->client_state) . ' ';
-            }
             if ($quote->client_zip) {
                 echo htmlsc($quote->client_zip);
             }
+            if ($quote->client_city) {
+                echo htmlsc($quote->client_city) . ' ';
+            }
+            /*if ($quote->client_state) {
+                echo htmlsc($quote->client_state) . ' ';
+            }*/
             echo '</div>';
         }
         if ($quote->client_country) {
@@ -106,9 +106,9 @@
         <h1 class="invoice-title"><?php echo trans('quote') . ' ' . $quote->quote_number; ?></h1>
         <div class="invoice-subject">
             <?php 
-            if(!!empty($custom_fields['quote']['Quote Subject'])) { 
-                echo  $custom_fields['quote']['Quote Subject'];
-            } ?>
+            if(isset($custom_fields['quote']['Quote Subject'])) {
+                print_r(  $custom_fields['quote']['Quote Subject']);}
+             ?>
         </div>
         <table class="item-table">
             <thead>
@@ -128,7 +128,7 @@
                 <?php
         foreach ($items as $item) { ?>
                 <tr>
-                    <td><?php _htmlsc($item->item_name); ?></td>
+                    <td><?php echo ($item->item_name); ?></td>
                     <td><?php echo nl2br(($item->item_description)); ?></td>
                     <td class="text-right">
                         <?php echo format_amount($item->item_quantity); ?>
