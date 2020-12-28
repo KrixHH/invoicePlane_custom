@@ -74,11 +74,10 @@
                 echo '<div>' . get_country_name(trans('cldr'), $invoice->client_country) . '</div>';
             }
 
-
-
-            if ($invoice->client_phone) {
+            /* if ($invoice->client_phone) {
                 echo '<div>' . trans('phone_abbr') . ': ' . htmlsc($invoice->client_phone) . '</div>';
-            } ?>
+            }*/ ?> 
+
         </div>
     </header>
 

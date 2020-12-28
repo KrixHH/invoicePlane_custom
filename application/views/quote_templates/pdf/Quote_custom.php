@@ -76,11 +76,9 @@
             echo '<div>' . get_country_name(trans('cldr'), $quote->client_country) . '</div>';
         }
 
-
-
-        if ($quote->client_phone) {
+        /* if ($quote->client_phone) {
             echo '<div>' . trans('phone_abbr') . ': ' . htmlsc($quote->client_phone) . '</div>';
-        } ?>
+        } ?> */
 
             </div>
 
